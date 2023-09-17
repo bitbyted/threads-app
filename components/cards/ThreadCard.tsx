@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import {formatDateString} from '@/lib/utils';
+import DeleteThread from '../forms/DeleteThread';
 
 type Props = {
   id: string;
@@ -64,6 +65,7 @@ const ThreadCard = ({id, currentUserId, parentId, content, author, community, cr
             </div>
           </div>
         </div>
+        <DeleteThread threadId={JSON.stringify(id)} currentUserId={currentUserId} authorId={author.id} parentId={parentId} isComment={isComment} />
       </div>
       {!isComment && comments.length > 0 && (
         <div className='ml-1 mt-3 flex items-center gap-2'>
